@@ -28,10 +28,10 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
 ## Getting Started
-...
+```
 
 npm install
-...
+```
 
 ## Create Environtment file
 
@@ -43,7 +43,7 @@ Database setting
 
 use phpmyadmin to create the database name webhaji. After creating the database, we need to open the .env file inside Laravel project and add the database credentials like bellow with your setting. 
 
-...
+```
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -60,37 +60,49 @@ DB_PORT=3306
 DB_DATABASE=webhaji
 DB_USERNAME=root
 DB_PASSWORD=toor
-...
+```
 
 Setting encryption by typing on project terminal/cmd
 
-...
+```
 
 php artisan key:generate
 
-...
+```
 
 make table from migration folder
 
-...
+```
 
 php artisan migrate
 
-...
-
-##
+```
 
 ##Running Laravel
-...
+
+```
 
 php artisan serve
-
+```
 
 updating the database(when needed)
 
+```
 php artisan migrate
 
-...
+```
+
+## Wallthrough Laravel
+
+create controller 
+```
+php artisan make:controller NameController --resource
+```
+
+check all url from routes/web.php
+```
+php artisan route:list
+```
 
 
 ## Contributing
