@@ -36,7 +36,7 @@
     -->
       <div class="logo">
         <a class="simple-text logo-mini">
-        WH
+          WH
         </a>
         <a class="simple-text logo-normal">
           {{ config('app.name', 'Web Haji') }}
@@ -48,6 +48,12 @@
             <a href="./home">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="post">
+            <a href="./post">
+              <i class="now-ui-icons files_paper"></i>
+              <p>Post</p>
             </a>
           </li>
           <li class="inbox">
@@ -117,7 +123,9 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header">
         <div class="header text-center">
+          @if (Request::path() !== 'post')
           <h2 class="title">{{Request::path()}}</h2>
+          @endif
         </div>
       </div>
       <div class="content mt-n1">
@@ -133,12 +141,15 @@
   <!-- <script src="{{ asset('assets/js/core/bootstrap.min.js') }}" defer></script> -->
   <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}" defer></script>
   <script src="{{ asset('assets/js/now-ui-dashboard.js') }}" defer></script>
-  <script defer>
+  <script >
     $('#sidebar-wrapper ul.nav li.active').removeClass('active');
     var loc = window.location.href; // returns the full URL
     switch (window.location.pathname) {
       case '/home':
         $('#sidebar-wrapper ul.nav li.dashboard').addClass('active');
+        break;
+      case '/post':
+        $('#sidebar-wrapper ul.nav li.post').addClass('active');
         break;
       case '/inbox':
         $('#sidebar-wrapper ul.nav li.inbox').addClass('active');

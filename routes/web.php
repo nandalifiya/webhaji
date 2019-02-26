@@ -23,3 +23,4 @@ Route::get('/service', 'ServiceController@index')->name('service');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('inbox', 'InboxController');
+Route::resource('post', 'PostController');

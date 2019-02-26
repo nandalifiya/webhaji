@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->longText('description');
             //nullable means the data can be null or empty
-            $table->float('price', 8, 2)->nullable();
+            $table->integer('price')->nullable();
             $table->string('filename')->nullable();
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();
