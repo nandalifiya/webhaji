@@ -36,7 +36,7 @@
     -->
       <div class="logo">
         <a class="simple-text logo-mini">
-          WH
+        WH
         </a>
         <a class="simple-text logo-normal">
           {{ config('app.name', 'Web Haji') }}
