@@ -92,7 +92,142 @@ php artisan migrate
 
 ```
 
-## Wallthrough Laravel
+## Walkthrough Laravel Step 1 make model/entity and migrations
+
+1. create model with migration
+
+```
+php artisan make:model Yourmodelname --migration
+```
+2. check folder database/migration/your_model_name and open it
+
+3. edit the migration file with column that will be on your model tabel
+   check [this link](https://laravel.com/docs/5.7/migrations#columns). example on file with same migrations folder
+
+4. update the migration table on phpmyadmin
+
+```
+php artisan migrate
+```
+
+5. check folder app/YourModelname and open it
+
+6. open file and edit the $fillable options (with your edited step number 3, column name can fill in the form), check Category.php for example
+
+## Walkthrough Relational table many to many
+
+( optional )
+if the model/migration has one to one / one to many / many to many on the migrations file.
+
+check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
+
+example many to many 2 tabel
+
+1. make new migration file for relating 2 tabel ex: category and post
+```
+php artisan make:migration create_category_post_table --create=category_post
+```
+2. edit the migrations file ex: on folder database/migrations/file_category_post_tabel
+
+3. edit the app/Post.php see the file
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+//add this import use
+use App\Category;
+
+class Post extends Model
+{
+    //add this method
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+}
+```
+
+4. edit the app/Category.php see the file
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+//add this import use
+use App\Post;
+
+class Category extends Model
+{
+    //add this method
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
+}
+```
+
+5.done
+
+## Walkthrough Relational table one to many
+
+( optional )
+if the model/migration has one to one / one to many / many to many on the migrations file.
+
+check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
+
+example one to many 2 tabel ex: user and post
+
+1. add the user id to database/migration/create_posts_tabel (see the file)
+
+2. edit app/User.php see the file
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    //add this method
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+}
+```
+
+3. edit app/Post.php see the file
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    //add this method
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
+}
+```
+
+
+
+
+
+
+## Walkthrough Laravel step 2 make controller
 
 create controller 
 ```
@@ -103,6 +238,8 @@ check all url from routes/web.php
 ```
 php artisan route:list
 ```
+
+edit the controller, example on folder app/Http/Controller/PostController.php
 
 
 ## Contributing
