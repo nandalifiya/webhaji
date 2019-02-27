@@ -33,21 +33,33 @@
               <th>
                 created
               </th>
+              <th>
+                action
+              </th>
             </thead>
             <tbody>
-            @foreach($posts as $post)
+              @foreach($posts as $post)
               <tr>
                 <td>
-                {{$post->title}}
+                  {{$post->title}}
                 </td>
                 <td>
-                {{$post->price}}
+                  {{$post->price}}
                 </td>
                 <td>
-                <img src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-width:100px;max-height:50px;">
+                  <img src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-width:100px;max-height:50px;">
                 </td>
                 <td>
-                {{$post->created_at}}
+                  {{$post->created_at}}
+                </td>
+                <td>
+                  <form method="post" action="{{ route('post.destroy', $post->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                  </form>
                 </td>
               </tr>
               @endforeach
@@ -97,7 +109,7 @@
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea type="textarea" class="form-control" name="description" id="description" rows="3" ></textarea>
+            <textarea type="textarea" class="form-control" name="description" id="description" rows="3"></textarea>
           </div>
 
         </div>
