@@ -38,5 +38,15 @@ class Post extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function inboxes()
+    {
+        return $this->belongsTo('App\Inbox');
+    }
   
+    public function outboxes()
+    {
+        return $this->belongsTo('App\Outbox');
+    }
+
 }
