@@ -19,8 +19,9 @@ Auth::routes();
 
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/about', 'AboutController@index')->name('about');
-Route::get('/service', 'ServiceController@index')->name('service');
-Route::get('/contact', 'ContactController@index')->name('contact');
+Route::get('/haji', 'HajiController@index')->name('haji');
+Route::get('/umrah', 'UmrahController@index')->name('umrah');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('outbox', 'outboxController');
 Route::resource('inbox', 'InboxController');
 Route::resource('post', 'PostController');

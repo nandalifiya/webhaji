@@ -6,7 +6,7 @@ use DummyFullModelClass;
 use App\lain;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UmrahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ContactController extends Controller
      */
     public function index(lain $lain)
     {
-        return view('contact');
+        return view('umrah');
     }
 
     /**

@@ -39,7 +39,7 @@
           WH
         </a>
         <a class="simple-text logo-normal">
-          {{ config('app.name', 'Web Haji') }}
+          {{ config('app.name', 'Laravel') }}
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -60,6 +60,12 @@
             <a href="./inbox">
               <i class="now-ui-icons ui-1_email-85"></i>
               <p>Inbox</p>
+            </a>
+          </li>
+          <li class="outbox">
+            <a href="./outbox">
+              <i class="now-ui-icons ui-1_email-85"></i>
+              <p>Outbox</p>
             </a>
           </li>
         </ul>
@@ -105,6 +111,9 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ url('/index') }}">
+                    {{ __('Index') }}
+                  </a>
                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
@@ -147,12 +156,16 @@
     switch (window.location.pathname) {
       case '/home':
         $('#sidebar-wrapper ul.nav li.dashboard').addClass('active');
+
         break;
       case '/post':
         $('#sidebar-wrapper ul.nav li.post').addClass('active');
         break;
       case '/inbox':
         $('#sidebar-wrapper ul.nav li.inbox').addClass('active');
+        break;
+        case '/outbox':
+        $('#sidebar-wrapper ul.nav li.outbox').addClass('active');
         break;
       default:
         // code block

@@ -40,19 +40,19 @@
             <a class="nav-link js-scroll-trigger" href="{{ url('/index') }}">Home</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}">Haji</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('/umrah') }}"><font color="#f44242">Umrah</font></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/service') }}">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/contact') }}"><font color="#f44242">Contact</font></a>
           </li>
 
             @if (Route::has('login'))
               @auth
               <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">Admin Dashboard</a>
+                <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Admin Dashboard</a>
               </li>
               @else
               <li class="nav-item">

@@ -6,7 +6,7 @@ use DummyFullModelClass;
 use App\lain;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class OutboxController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +14,27 @@ class ServiceController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function index(lain $lain)
+    
+    public function __construct()
     {
-        return view('service');
+        $this->middleware('auth');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+      return view('admin.outbox');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function create(lain $lain)
+    public function create()
     {
         //
     }
@@ -34,10 +43,9 @@ class ServiceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, lain $lain)
+    public function store(Request $request)
     {
         //
     }
@@ -45,11 +53,10 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\lain  $lain
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(lain $lain, DummyModelClass $DummyModelVariable)
+    public function show($id)
     {
         //
     }
@@ -57,11 +64,10 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\lain  $lain
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(lain $lain, DummyModelClass $DummyModelVariable)
+    public function edit($id)
     {
         //
     }
@@ -70,11 +76,10 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\lain  $lain
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, lain $lain, DummyModelClass $DummyModelVariable)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,11 +87,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\lain  $lain
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(lain $lain, DummyModelClass $DummyModelVariable)
+    public function destroy($id)
     {
         //
     }

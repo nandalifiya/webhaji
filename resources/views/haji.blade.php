@@ -40,13 +40,13 @@
             <a class="nav-link js-scroll-trigger" href="{{ url('/index') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}">Haji</a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}"><font color="#f44242">Haji</font></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/umrah') }}">Umrah</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}"><font color="#f44242">About Us</font></a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About Us</a>
           </li>
 
             @if (Route::has('login'))
