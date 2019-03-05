@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Web Haji - admin') }}</title>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -45,25 +45,25 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="dashboard">
-            <a href="./home">
+            <a href="{{ route('home.index') }}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="post">
-            <a href="./post">
+            <a href="{{ route('post.index') }}">
               <i class="now-ui-icons files_paper"></i>
               <p>Post</p>
             </a>
           </li>
           <li class="inbox">
-            <a href="./inbox">
+            <a href="{{ route('inbox.index') }}">
               <i class="now-ui-icons ui-1_email-85"></i>
               <p>Inbox</p>
             </a>
           </li>
           <li class="outbox">
-            <a href="./outbox">
+            <a href="{{ route('outbox.index') }}">
               <i class="now-ui-icons ui-1_email-85"></i>
               <p>Outbox</p>
             </a>
@@ -83,7 +83,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="">{{Request::path()}}</a>
+            <a class="navbar-brand" href="">{{Request::path() }}</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -133,7 +133,7 @@
       <div class="panel-header panel-header">
         <div class="header text-center">
           @if (Request::path() !== 'post')
-          <h2 class="title">{{Request::path()}}</h2>
+          <h2 class="title">{{ Request::segment(1) }}</h2>
           @endif
         </div>
       </div>
