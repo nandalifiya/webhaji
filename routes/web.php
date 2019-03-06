@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
 Auth::routes();
 
-Route::get('/index', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@index')->name('index');
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/haji', 'HajiController@index')->name('haji');
 Route::get('/umrah', 'UmrahController@index')->name('umrah');
