@@ -3,26 +3,28 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
-use App\lain;
 use Illuminate\Http\Request;
+use App\lain;
+use App\Post;
 
 class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\lain  $lain
+     
      * @return \Illuminate\Http\Response
      */
     public function index(lain $lain)
     {
-        return view('index');
+        $posts = Post::all();
+        return view('index', ['posts' => $posts]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param  \App\lain  $lain
+     
      * @return \Illuminate\Http\Response
      */
     public function create(lain $lain)
