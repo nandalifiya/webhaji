@@ -37,7 +37,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.addPost');
     }
 
     /**
@@ -90,7 +90,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+      $post = Post::find($id);
+      return view('admin.editPost', compact('post'));
     }
 
     /**
@@ -102,7 +103,27 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $request->validate([
+        'title'=>'required',
+        'image' =>'required',
+        'description' => 'required'
+      ]);
+
+      $fileImage = $request->file('image');
+      $extension = $fileImage->getClientOriginalExtension();
+      Storage::disk('public')->put($fileImage->getFilename().'.'.$extension,  File::get($fileImage));
+
+      $post = Post::find($id);
+        $post->title = $request->get('title');
+        $post->description = $request->get('description');
+        $post->price = $request->get('price');
+        $post->filename = $fileImage->getFilename().'.'.$extension;
+        $post->mime = $fileImage->getClientMimeType();
+        $post->original_filename = $fileImage->getClientOriginalName();
+        $post->user_id = Auth::id();
+      
+      $post->save();
+      return redirect('/post')->with('success', 'Stock has been added');
     }
 
     /**

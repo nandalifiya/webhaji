@@ -21,7 +21,8 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/haji', 'HajiController@index')->name('haji');
 Route::get('/umrah', 'UmrahController@index')->name('umrah');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('outbox', 'outboxController');
+Route::get('/home', 'HomeController@index')->name('home.index');
+Route::resource('outbox', 'OutboxController');
 Route::resource('inbox', 'InboxController');
 Route::resource('post', 'PostController');
+
