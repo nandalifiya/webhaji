@@ -91,7 +91,12 @@ updating the database(when needed)
 php artisan migrate
 
 ```
+creating symlink
 
+```
+php artisan storage:link
+
+```
 ## Walkthrough Laravel Step 1 make model/entity and migrations
 
 1. create model with migration
