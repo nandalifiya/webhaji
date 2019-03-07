@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -37,7 +38,8 @@ class PostController extends Controller
      */
     public function create()
     {
-      return view('admin.addPost');
+      $categories = Category::all();
+      return view('admin.addPost', compact('categories'));
     }
 
     /**
@@ -48,6 +50,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+      dd(
+        $request->get('category'),
+       );
       $request->validate([
         'title'=>'required',
         'image'=> 'required',
@@ -57,7 +62,7 @@ class PostController extends Controller
       $fileImage = $request->file('image');
       $extension = $fileImage->getClientOriginalExtension();
       Storage::disk('public')->put($fileImage->getFilename().'.'.$extension,  File::get($fileImage));
-
+      
       $post = new Post([
         'title' => $request->get('title'),
         'description'=> $request->get('description'),
@@ -91,7 +96,8 @@ class PostController extends Controller
     public function edit($id)
     {
       $post = Post::find($id);
-      return view('admin.editPost', compact('post'));
+      $categories = Category::all();
+      return view('admin.editPost', compact('post', 'categories'));
     }
 
     /**

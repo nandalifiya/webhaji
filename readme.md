@@ -78,6 +78,16 @@ php artisan migrate
 
 ```
 
+insert dummy data from factory and seeder
+```
+php artisan db:seed
+```
+
+when stuck or application not update
+```
+composer dump-autoload
+```
+
 ##Running Laravel
 
 ```
@@ -226,11 +236,6 @@ class Post extends Model
     }
 }
 ```
-
-
-
-
-
 
 ## Walkthrough Laravel step 2 make controller
 
