@@ -50,9 +50,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-      dd(
-        $request->get('category'),
-       );
+        
       $request->validate([
         'title'=>'required',
         'image'=> 'required',
@@ -73,6 +71,25 @@ class PostController extends Controller
         'user_id' => Auth::id()
       ]);
       $post->save();
+      $categories = array();
+      if($request->get('category_blog') != null){
+        array_push($categories, $request->get('category_blog') );
+      }
+      if($request->get('category_recommend') != null){
+        array_push($categories, $request->get('category_recommend') );
+      }
+      if($request->get('category_umroh') != null){
+        array_push($categories, $request->get('category_umroh') );
+      }
+      if($request->get('category_haji') != null){
+        array_push($categories, $request->get('category_haji') );
+      }
+      if(count($categories) > 0){
+        $category = Category::find($categories);
+        $post->categories()->attach($category);
+      }
+      
+
       return redirect('/post')->with('success', 'Stock has been added');
     }
 
@@ -129,6 +146,26 @@ class PostController extends Controller
         $post->user_id = Auth::id();
       
       $post->save();
+      $detachcategory = Category::find([1,2,3,4]);
+      $post->categories()->detach($detachcategory);
+
+      $categories = array();
+      if($request->get('category_blog') != null){
+        array_push($categories, $request->get('category_blog') );
+      }
+      if($request->get('category_recommend') != null){
+        array_push($categories, $request->get('category_recommend') );
+      }
+      if($request->get('category_umroh') != null){
+        array_push($categories, $request->get('category_umroh') );
+      }
+      if($request->get('category_haji') != null){
+        array_push($categories, $request->get('category_haji') );
+      }
+      if(count($categories) > 0){
+        $category = Category::find($categories);
+        $post->categories()->attach($category);
+      }
       return redirect('/post')->with('success', 'Stock has been added');
     }
 

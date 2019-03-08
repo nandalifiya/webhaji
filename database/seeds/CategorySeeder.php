@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
           'name' => 'blog'
         ]);
         $category2 = factory(App\Category::class)->create([
-          'name' => 'recommend  '
+          'name' => 'recommend'
         ]);
         $category3 = factory(App\Category::class)->create([
           'name' => 'umroh'

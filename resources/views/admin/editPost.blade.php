@@ -37,6 +37,18 @@
             <label for="price">Price</label>
             <input type="number" class="form-control" name="price" id="price" value="{{ $post->price }}" />
           </div>
+          <label for="category">Category</label>
+          <br>
+          @foreach($categories as $category)
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="category_{{ $category->name }}" id="category{{ $category->id }}" value="{{ $category->id }}"> 
+              {{ $category->name }}
+              <span class="form-check-sign"></span>
+            </label>
+          </div>
+          @endforeach
+          <br>
           <button type="submit" class="btn btn-primary">Save changes</button>
         </form>
       </div>
