@@ -12,47 +12,57 @@
           <table class="table">
             <thead class=" text-primary">
               <th>
-                Name
+                name
               </th>
               <th>
-                Country
+                email
               </th>
               <th>
-                City
+                post
               </th>
-              <th class="text-right">
-                Salary
+              <th>
+                created
+              </th>
+              <th>
+                action
               </th>
             </thead>
             <tbody>
+              @foreach($inboxes as $inbox)
               <tr>
                 <td>
-                  Dakota Rice
+                  {{$inbox->name}}
                 </td>
                 <td>
-                  Niger
+                  {{$inbox->email}}
                 </td>
                 <td>
-                  Oud-Turnhout
+                  {{$inbox->post}}
                 </td>
-                <td class="text-right">
-                  $36,738
+                <td>
+                  {{$inbox->created_at}}
+                </td>
+                <td>
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <form method="inbox" action="{{ route('inbox.destroy', $inbox->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger">
+                          <i class="now-ui-icons ui-1_simple-remove"></i>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="col-auto">
+                      <a href="{{ route('inbox.email', $inbox->id) }}" class="btn btn-sm btn-info">
+                          <i class="now-ui-icons ui-1_email-85"></i>
+   
+                      </a>
+                    </div>
+                  </div>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  Minerva Hooper
-                </td>
-                <td>
-                  Curaçao
-                </td>
-                <td>
-                  Sinaai-Waas
-                </td>
-                <td class="text-right">
-                  $23,789
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Inbox;
 
 class InboxController extends Controller
 {
@@ -22,7 +23,8 @@ class InboxController extends Controller
      */
     public function index()
     {
-      return view('admin.inbox');
+      $inboxes = Inbox::all();
+      return view('admin.inbox', compact('inboxes'));
     }
 
     /**

@@ -5,54 +5,52 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Outbox </h4>
+        <h4 class="card-title">outbox </h4>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
             <thead class=" text-primary">
               <th>
-                Name
+                email
               </th>
               <th>
-                Country
+                post
               </th>
               <th>
-                City
+                created
               </th>
-              <th class="text-right">
-                Salary
+              <th>
+                action
               </th>
             </thead>
             <tbody>
+              @foreach($outboxes as $outbox)
               <tr>
                 <td>
-                  Dakota Rice
+                  {{$outbox->email}}
                 </td>
                 <td>
-                  Niger
+                  {{$outbox->post}}
                 </td>
                 <td>
-                  Oud-Turnhout
+                  {{$outbox->created_at}}
                 </td>
-                <td class="text-right">
-                  $36,738
+                <td>
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <form method="outbox" action="{{ route('outbox.destroy', $outbox->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger">
+                          <i class="now-ui-icons ui-1_simple-remove"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  Minerva Hooper
-                </td>
-                <td>
-                  Curaçao
-                </td>
-                <td>
-                  Sinaai-Waas
-                </td>
-                <td class="text-right">
-                  $23,789
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

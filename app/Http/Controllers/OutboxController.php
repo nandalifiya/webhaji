@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
-use App\lain;
+use App\Outbox;
 use Illuminate\Http\Request;
 
 class OutboxController extends Controller
@@ -11,7 +11,7 @@ class OutboxController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\lain  $lain
+     * @param  \App\  $lain
      * @return \Illuminate\Http\Response
      */
     
@@ -26,7 +26,8 @@ class OutboxController extends Controller
      */
     public function index()
     {
-      return view('admin.outbox');
+      $outboxes = Outbox::all();
+      return view('admin.outbox', compact('outboxes'));
     }
 
     /**
