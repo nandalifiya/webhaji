@@ -63,17 +63,13 @@ DB_PASSWORD=toor
 ```
 
 Setting encryption by typing on project terminal/cmd
-
 ```
-
 php artisan key:generate
 
 ```
 
 make table from migration folder
-
 ```
-
 php artisan migrate
 
 ```
@@ -89,38 +85,37 @@ composer dump-autoload
 ```
 
 ##Running Laravel
-
 ```
-
 php artisan serve
 ```
 
 updating the database(when needed)
-
 ```
 php artisan migrate
-
 ```
-creating symlink
 
+refresh and run all the database seed after pulling git (maybe there's an update)
+```
+php artisan migrate:refresh --seed
+```
+
+creating symlink
 ```
 php artisan storage:link
-
 ```
+
 ## Walkthrough Laravel Step 1 make model/entity and migrations
 
 1. create model with migration
-
 ```
 php artisan make:model Yourmodelname --migration
 ```
+
 2. check folder database/migration/your_model_name and open it
 
-3. edit the migration file with column that will be on your model tabel
-   check [this link](https://laravel.com/docs/5.7/migrations#columns). example on file with same migrations folder
+3. edit the migration file with column that will be on your model tabel check [this link](https://laravel.com/docs/5.7/migrations#columns). example on file with same migrations folder
 
 4. update the migration table on phpmyadmin
-
 ```
 php artisan migrate
 ```
@@ -129,23 +124,21 @@ php artisan migrate
 
 6. open file and edit the $fillable options (with your edited step number 3, column name can fill in the form), check Category.php for example
 
+
 ## Walkthrough Relational table many to many
 
 ( optional )
-if the model/migration has one to one / one to many / many to many on the migrations file.
-
-check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
+if the model/migration has one to one / one to many / many to many on the migrations file, check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
 
 example many to many 2 tabel
-
 1. make new migration file for relating 2 tabel ex: category and post
 ```
 php artisan make:migration create_category_post_table --create=category_post
 ```
+
 2. edit the migrations file ex: on folder database/migrations/file_category_post_tabel
 
 3. edit the app/Post.php see the file
-
 ```
 <?php
 
@@ -167,7 +160,6 @@ class Post extends Model
 ```
 
 4. edit the app/Category.php see the file
-
 ```
 <?php
 
@@ -190,12 +182,11 @@ class Category extends Model
 
 5.done
 
+
 ## Walkthrough Relational table one to many
 
 ( optional )
-if the model/migration has one to one / one to many / many to many on the migrations file.
-
-check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
+if the model/migration has one to one / one to many / many to many on the migrations file, check eloquent relation table on [this link](https://laravel.com/docs/5.7/eloquent-relationships).
 
 example one to many 2 tabel ex: user and post
 
@@ -237,6 +228,7 @@ class Post extends Model
 }
 ```
 
+
 ## Walkthrough Laravel step 2 make controller
 
 create controller 
@@ -255,6 +247,7 @@ edit the controller, example on folder app/Http/Controller/PostController.php
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
 
 ## License
 
