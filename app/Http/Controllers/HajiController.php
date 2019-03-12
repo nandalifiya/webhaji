@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
+<<<<<<< HEAD
 use App\Post;
+=======
+use App\lain;
+>>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
 use Illuminate\Http\Request;
 
 class HajiController extends Controller

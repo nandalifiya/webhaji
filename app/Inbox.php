@@ -3,7 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use App\Inboxes;
+=======
+>>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
 
 class inbox extends Model
 {
@@ -15,8 +18,12 @@ class inbox extends Model
     protected $fillable = [
         'name',
         'email',
+<<<<<<< HEAD
         'call_numb',
         'post_id',
+=======
+        'post_id'
+>>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
       ];
 
     /**

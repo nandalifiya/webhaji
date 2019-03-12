@@ -22,5 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 Route::resource('outbox', 'OutboxController');
 Route::resource('inbox', 'InboxController');
 Route::resource('post', 'PostController');
+<<<<<<< HEAD
 Route::get('show/{id}','ShowController@show');
+=======
+>>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
 
