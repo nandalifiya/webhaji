@@ -101,12 +101,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-<<<<<<< HEAD
       $model = Post::find($id);
       return view('show',compact('model'));
-=======
-        //
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
     }
 
     /**

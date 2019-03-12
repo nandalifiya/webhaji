@@ -111,11 +111,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
                   <a class="dropdown-item" href="{{ url('/') }}">
-=======
-                  <a class="dropdown-item" href="{{ url('/index') }}">
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
                     {{ __('Index') }}
                   </a>
                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

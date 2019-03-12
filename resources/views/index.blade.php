@@ -101,11 +101,7 @@
             <div class="card-body">
               <h6 class="card-title">{{$post->title}}</h6>
               <p class="card-text">{{$post->description}}</p>
-<<<<<<< HEAD
               <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
-=======
-              <a class="btn btn-primary">Details</a>
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
             </div>
           </div>
         </div>

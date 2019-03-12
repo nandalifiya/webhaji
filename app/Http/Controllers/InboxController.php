@@ -45,7 +45,19 @@ class InboxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'name'=>'required',
+        'email' =>'required',
+        'call_numb' => 'required'
+      ]);
+        $inbox = new Inbox([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'call_numb' => $request->get('call_numb'),
+        'post_id' => $request->get('post_id')]);
+      
+      $inbox->save();
+      return redirect('/')->with('success', 'Stock has been added');
     }
 
     /**

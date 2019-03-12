@@ -37,11 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-<<<<<<< HEAD
             <a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Home</a>
-=======
-            <a class="nav-link js-scroll-trigger" href="{{ url('/index') }}">Home</a>
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}"><font color="#f44242">Haji</font></a>

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
-<<<<<<< HEAD
 use App\Post;
-=======
 use App\lain;
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
 use Illuminate\Http\Request;
 
 class HajiController extends Controller
@@ -18,7 +15,7 @@ class HajiController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function index(lain $lain)
+    public function index()
     {
         return view('haji');
     }

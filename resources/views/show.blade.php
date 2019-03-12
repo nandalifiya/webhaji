@@ -122,20 +122,23 @@
         <div class="row">
           <div class="booking-form">
             <h3>Daftar Sekarang!</h3>
-            <form>
+            <form method="post" action="{{ route('inbox.store') }}" >
+            @csrf
+            @method('POST')
+            <input type="hidden" name="post_id" id="post_id" value="{{$model->id}}">
               <div class="form-group">
                 <span class="form-label">Nama</span>
-                <input class="form-control" type="name" placeholder="masukkan nama">
+                <input class="form-control" type="name" placeholder="masukkan nama" name="name" id="name">
               </div>
               <div class="form-group">
                 <span class="form-label">Email</span>
-                <input class="form-control" type="email" placeholder="masukkan email">
+                <input class="form-control" type="email" placeholder="masukkan email" name="email" id="email">
               </div>
               <div class="form-group">
                 <span class="form-label">Nomor Telepon</span>
-                <input class="form-control" type="tel" placeholder="masukkan nomor telepon">
+                <input class="form-control" type="tel" placeholder="masukkan nomor telepon" name="call_numb" id="call_numb">
               </div>
-              <a class="btn btn-primary btn-l js-scroll-trigger" href="{{ url('sent', ['id' => $model['id']]) }}">Daftar</a>
+              <button type="submt" class="btn btn-primary">Daftar</button>
               </div>
               
             </form>
