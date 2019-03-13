@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\VerificationMail;
+use Illuminate\Support\Facades\Mail;
 use App\Inbox;
 
 class InboxController extends Controller
@@ -14,7 +16,6 @@ class InboxController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -57,6 +58,9 @@ class InboxController extends Controller
         'post_id' => $request->get('post_id')]);
       
       $inbox->save();
+      
+      Mail::to($request->get('email'))->send(new VerificationMail()); 
+      
       return redirect('/')->with('success', 'Stock has been added');
     }
 
