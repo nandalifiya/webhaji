@@ -94,6 +94,11 @@ MAIL_ENCRYPTION=tls
 
 ```
 
+clear cache after edit env
+```
+php artisan config:cache
+```
+
 when stuck or application not update
 ```
 composer dump-autoload
