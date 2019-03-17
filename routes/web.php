@@ -11,8 +11,8 @@
 |
 */
 
-
-
+use App\Mail\VerificationMail;
+use Illuminate\Support\Facades\Mail;
 
 Auth::routes();
 
@@ -24,4 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 Route::resource('outbox', 'OutboxController');
 Route::resource('inbox', 'InboxController');
 Route::resource('post', 'PostController');
+Route::resource('mail', 'MailController');
 Route::get('show/{id}','ShowController@show');

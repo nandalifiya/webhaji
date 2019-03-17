@@ -122,7 +122,7 @@
         <div class="row">
           <div class="booking-form">
             <h3>Daftar Sekarang!</h3>
-            <form method="post" action="{{ route('inbox.store') }}" >
+            <form method="post" action="{{ route('mail.store') }}" >
             @csrf
             @method('POST')
             <input type="hidden" name="post_id" id="post_id" value="{{$model->id}}">

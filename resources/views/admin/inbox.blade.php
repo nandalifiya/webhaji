@@ -18,6 +18,9 @@
                 email
               </th>
               <th>
+                call number
+              </th>
+              <th>
                 post
               </th>
               <th>
@@ -37,7 +40,10 @@
                   {{$inbox->email}}
                 </td>
                 <td>
-                  {{$inbox->post}}
+                  {{$inbox->call_numb}}
+                </td>
+                <td>
+                  {{$inbox->post_id}}
                 </td>
                 <td>
                   {{$inbox->created_at}}
@@ -54,7 +60,7 @@
                       </form>
                     </div>
                     <div class="col-auto">
-                      <a href="{{ route('inbox.email', $inbox->id) }}" class="btn btn-sm btn-info">
+                      <a href="{{ route('inbox.destroy', $inbox->id) }}" class="btn btn-sm btn-info">
                           <i class="now-ui-icons ui-1_email-85"></i>
    
                       </a>

@@ -16,6 +16,7 @@ class InboxController extends Controller
      */
     public function __construct()
     {
+      $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -46,22 +47,7 @@ class InboxController extends Controller
      */
     public function store(Request $request)
     {
-      $request->validate([
-        'name'=>'required',
-        'email' =>'required',
-        'call_numb' => 'required'
-      ]);
-        $inbox = new Inbox([
-        'name' => $request->get('name'),
-        'email' => $request->get('email'),
-        'call_numb' => $request->get('call_numb'),
-        'post_id' => $request->get('post_id')]);
-      
-      $inbox->save();
-      
-      Mail::to($request->get('email'))->send(new VerificationMail()); 
-      
-      return redirect('/')->with('success', 'Stock has been added');
+      //
     }
 
     /**

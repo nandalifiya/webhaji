@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use DummyFullModelClass;
 use Illuminate\Http\Request;
-use App\Inboxes;
+use App\Mail\VerificationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Inbox;
 
-class SentController extends Controller
+class MailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +15,9 @@ class SentController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
+    public function index(lain $lain)
     {
         //
-    }
-
-    public function index()
-    {
-        
     }
 
     /**
@@ -31,7 +26,7 @@ class SentController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(lain $lain)
     {
         //
     }
@@ -43,35 +38,25 @@ class SentController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'call_numb'=>'required'
-        ]);
-
-        $inbox = new Inboxes([
-            'name'=>$request->get('name'),
-            'email'=>$request->get('email'),
-            'call_numb'=>$request->get('call_numb'),
-            'post_id'=>Post::find($id)
-        ]);
-
-        $inbox->save();
-        return redirect('/sent');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\lain  $lain
-     * @param  \DummyFullModelClass  $DummyModelVariable
-     * @return \Illuminate\Http\Response
-     */
-    public function show(lain $lain, DummyModelClass $DummyModelVariable)
-    {
-        //
+      $request->validate([
+        'name'=>'required',
+        'email' =>'required',
+        'call_numb' => 'required'
+      ]);
+        $inbox = new Inbox([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'call_numb' => $request->get('call_numb'),
+        'post_id' => $request->get('post_id')]);
+      
+      $inbox->save();
+      
+      Mail::to($request->get('email'))->send(new VerificationMail()); 
+      
+      return redirect('/')->with('success', 'Stock has been added');
     }
 
     /**
