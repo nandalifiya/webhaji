@@ -15,7 +15,7 @@
                 email
               </th>
               <th>
-                post
+                description
               </th>
               <th>
                 created
@@ -31,7 +31,7 @@
                   {{$outbox->email}}
                 </td>
                 <td>
-                  {{$outbox->post}}
+                  {{$outbox->description}}
                 </td>
                 <td>
                   {{$outbox->created_at}}

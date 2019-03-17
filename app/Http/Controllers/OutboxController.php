@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
+
+use Illuminate\Support\Facades\Auth;
 use App\Outbox;
+use App\Inbox;
 use Illuminate\Http\Request;
 
 class OutboxController extends Controller
@@ -35,9 +38,10 @@ class OutboxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $inbox = Inbox::find($id);
+        return view('admin.addOutbox', compact('inbox'));
     }
 
     /**
@@ -48,7 +52,20 @@ class OutboxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'description'=>'required',
+      ]);
+
+      $outbox = new Outbox([
+          'description'=>$request->get('description'),
+          'email'=>$request->get('email'),
+          'user_id'=>Auth::id(),
+          'post_id'=> $request->get('post_id'),
+          'inbox_id' => $request->get('inbox_id')
+      ]);
+
+      $outbox->save();
+      return redirect('/outbox');
     }
 
     /**

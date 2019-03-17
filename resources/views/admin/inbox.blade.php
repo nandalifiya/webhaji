@@ -60,7 +60,7 @@
                       </form>
                     </div>
                     <div class="col-auto">
-                      <a href="{{ route('inbox.destroy', $inbox->id) }}" class="btn btn-sm btn-info">
+                      <a href="{{ route('outbox.create', $inbox->id) }}" class="btn btn-sm btn-info">
                           <i class="now-ui-icons ui-1_email-85"></i>
    
                       </a>

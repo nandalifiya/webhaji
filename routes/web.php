@@ -26,3 +26,5 @@ Route::resource('inbox', 'InboxController');
 Route::resource('post', 'PostController');
 Route::resource('mail', 'MailController');
 Route::get('show/{id}','ShowController@show');
+
+Route::get('outbox/create/{id}',['as' => 'outbox.create', 'uses' => 'OutboxController@create']);
