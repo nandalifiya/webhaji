@@ -271,10 +271,6 @@ edit the controller, example on folder app/Http/Controller/PostController.php
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5890259d88e924761a82f87be8a1ff32811f56da
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

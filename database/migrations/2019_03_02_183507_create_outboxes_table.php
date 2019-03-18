@@ -16,6 +16,7 @@ class CreateOutboxesTable extends Migration
         Schema::create('outboxes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
+            $table->string('subject');
             $table->longText('description');
             $table->integer('user_id');
             $table->integer('post_id');

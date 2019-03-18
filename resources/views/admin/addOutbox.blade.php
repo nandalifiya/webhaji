@@ -15,6 +15,11 @@
             <label for="email">Email Penerima <span style="color:red">*</span></label>
             <input type="text" class="form-control" name="email" id="email" value="{{ $inbox->email }}" required/>
           </div>
+
+          <div class="form-group">
+            <label for="subject">Subject <span style="color:red">*</span></label>
+            <input type="text" class="form-control" name="subject" id="subject" required/>
+          </div>
           
           <div class="form-group">
             <label for="description">Description<span style="color:red">*</span></label>

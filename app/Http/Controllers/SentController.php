@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DummyFullModelClass;
+use App\Mail\VerificationMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Inboxes;
 
@@ -59,6 +60,9 @@ class SentController extends Controller
         ]);
 
         $inbox->save();
+
+        Mail::to($request->get('email'))->send(new VerificationMail()); 
+        
         return redirect('/sent');
     }
 

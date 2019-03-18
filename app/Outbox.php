@@ -15,6 +15,7 @@ class Outbox extends Model
     protected $fillable = [
         'email',
         'description',
+        'subject',
         'user_id',
         'post_id',
         'inbox_id'

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use DummyFullModelClass;
 
 use Illuminate\Support\Facades\Auth;
+use App\Mail\OutboxMail;
+use Illuminate\Support\Facades\Mail;
 use App\Outbox;
 use App\Inbox;
 use Illuminate\Http\Request;
@@ -58,6 +60,7 @@ class OutboxController extends Controller
 
       $outbox = new Outbox([
           'description'=>$request->get('description'),
+          'subject'=>$request->get('subject'),
           'email'=>$request->get('email'),
           'user_id'=>Auth::id(),
           'post_id'=> $request->get('post_id'),
@@ -65,6 +68,10 @@ class OutboxController extends Controller
       ]);
 
       $outbox->save();
+
+      Mail::to($request->get('email'))
+        ->send(new OutboxMail($request->get('subject'), $request->get('description'))); 
+        
       return redirect('/outbox');
     }
 

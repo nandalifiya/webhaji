@@ -2,12 +2,12 @@
 
 Hi <b>{{$name}}</b>,
 
-Anda telah melakukan pemesanan paket haji/umroh,
+Anda telah melakukan pemesanan paket haji/umroh,<br />
 
-lakukan pembayaran pada rekening 
+lakukan pembayaran pada rekening <br />
 
-BNI: 1209 0192 1829 
-BRI: 1293 8129 8123
+BNI: 1209 0192 1829 <br />
+BRI: 1293 8129 8123<br />
 
 Lakukan verifikasi dengan menekan tombol dibawah ini<br />
 
