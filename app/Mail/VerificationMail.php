@@ -28,7 +28,7 @@ class VerificationMail extends Mailable
      */
     public function build()
     {
-        return $this->from('do_not_reply@webhaji.com', 'WEBHAJI ONLINE')
+        return $this->from('nandaalifiya2@gmail.com', 'WEBHAJI ONLINE')
         ->subject('Konfirmasi Pembayaran Pesanan - WEBHAJI')
         ->markdown('mails.verification')
         ->with([
