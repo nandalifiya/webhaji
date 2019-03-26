@@ -6,6 +6,7 @@ use DummyFullModelClass;
 use Illuminate\Http\Request;
 use App\lain;
 use App\Post;
+use App\Category;
 
 class IndexController extends Controller
 {
@@ -18,7 +19,26 @@ class IndexController extends Controller
     public function index(lain $lain)
     {
         $posts = Post::all();
-        return view('index', ['posts' => $posts]);
+        $hajiPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'haji');
+                })->get();
+        $UmrohPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'umroh');
+                })->get();
+        $recommendPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'recommend');
+                })->get();
+        $blogPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'blog');
+                })->get();
+
+        return view('index', [
+                'posts' => $posts, 
+                'hajiPosts'=> $hajiPosts,
+                'umrohPosts' => $UmrohPosts,
+                'recommendPosts' => $recommendPosts,
+                'blogPosts' => $blogPosts
+            ]);
     }
 
     /**
