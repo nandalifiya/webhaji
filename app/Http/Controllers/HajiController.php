@@ -17,7 +17,10 @@ class HajiController extends Controller
      */
     public function index()
     {
-        return view('haji');
+        $hajiPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'haji');
+                })->paginate(6);
+        return view('haji', ['hajiPosts' => $hajiPosts]);
     }
 
     /**
