@@ -18,10 +18,10 @@
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.css" rel="stylesheet">
+  <link href="/css/creative.css" rel="stylesheet">
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -90,8 +90,9 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Daftar Sekarang!</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Daftar</a>
+          <p class="text-white-75 font-weight-light mb-5">Cek paketnya sekarang!</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin:20px;" href="{{ url('/haji') }}">Paket Haji</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin:20px;" href="{{ url('/umrah') }}">Paket Umrah</a>
         </div>
       </div>
     </div>
@@ -108,7 +109,8 @@
           <div class="card text-center">
             <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}">
             <div class="card-body">
-              <h6 class="card-title">{{$post->title}}</h6>
+            <h5 class="card-title mb-1"><strong>{{$post->title}}</strong></h5>
+              <hr class="mt-1 mb-1">
               <p class="card-text">{{$post->description}}</p>
               <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
             </div>
@@ -201,7 +203,7 @@
   </footer>
 
   <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+  <script src="/js/creative.min.js"></script>
 
 </body>
 

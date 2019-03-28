@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Web Haji - admin') }}</title>
+  <title>Web Haji - admin</title>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,12 +35,7 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a class="simple-text logo-mini">
-          WH
-        </a>
-        <a class="simple-text logo-normal">
-          {{ config('app.name', 'Laravel') }}
-        </a>
+        <a class="simple-text logo-normal">WebHaji - Admin</a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
@@ -156,7 +151,6 @@
     switch (window.location.pathname) {
       case '/home':
         $('#sidebar-wrapper ul.nav li.dashboard').addClass('active');
-
         break;
       case '/post':
         $('#sidebar-wrapper ul.nav li.post').addClass('active');

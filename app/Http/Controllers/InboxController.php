@@ -25,7 +25,7 @@ class InboxController extends Controller
      */
     public function index()
     {
-      $inboxes = Inbox::all();
+      $inboxes = Inbox::orderBy('created_at', 'DESC')->get();
       return view('admin.inbox', compact('inboxes'));
     }
 
@@ -92,6 +92,8 @@ class InboxController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $inboxes = Inbox::findOrFail($id);
+      $inboxes->delete();
+      return redirect()->back();
     }
 }

@@ -78,8 +78,8 @@ class PostController extends Controller
       if($request->get('category_recommend') != null){
         array_push($categories, $request->get('category_recommend') );
       }
-      if($request->get('category_umroh') != null){
-        array_push($categories, $request->get('category_umroh') );
+      if($request->get('category_umrah') != null){
+        array_push($categories, $request->get('category_umrah') );
       }
       if($request->get('category_haji') != null){
         array_push($categories, $request->get('category_haji') );
@@ -89,7 +89,6 @@ class PostController extends Controller
         $post->categories()->attach($category);
       }
       
-
       return redirect('/post')->with('success', 'Stock has been added');
     }
 
@@ -157,8 +156,8 @@ class PostController extends Controller
       if($request->get('category_recommend') != null){
         array_push($categories, $request->get('category_recommend') );
       }
-      if($request->get('category_umroh') != null){
-        array_push($categories, $request->get('category_umroh') );
+      if($request->get('category_umrah') != null){
+        array_push($categories, $request->get('category_umrah') );
       }
       if($request->get('category_haji') != null){
         array_push($categories, $request->get('category_haji') );

@@ -33,7 +33,7 @@ class VerificationMail extends Mailable
         ->markdown('mails.verification')
         ->with([
             'name' => 'Kamu',
-            'link' => 'localhost:8000'
+            'link' => '127.0.0.1:8000'
         ]);
     }
 }

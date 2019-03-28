@@ -21,7 +21,7 @@
                 call number
               </th>
               <th>
-                post
+                booked post_id
               </th>
               <th>
                 created
@@ -51,7 +51,7 @@
                 <td>
                   <div class="row align-items-center">
                     <div class="col-auto">
-                      <form method="inbox" action="{{ route('inbox.destroy', $inbox->id) }}">
+                      <form method="POST" action="{{ route('inbox.destroy', $inbox->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">

@@ -7,7 +7,7 @@ use App\lain;
 use App\Post;
 use Illuminate\Http\Request;
 
-class UmrahController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,9 @@ class UmrahController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(lain $lain)
     {
-        $umrahPosts = Post::whereHas('categories', function($q){
-                    $q->where('name', 'umrah');
-                })->paginate(6);
-        return view('umrah', ['umrahPosts' => $umrahPosts]);
+        //
     }
 
     /**
@@ -53,10 +50,17 @@ class UmrahController extends Controller
      * @param  \DummyFullModelClass  $DummyModelVariable
      * @return \Illuminate\Http\Response
      */
-    public function show(lain $lain, DummyModelClass $DummyModelVariable)
+    public function show($category_id)
     {
-        //
+        $category = Category::findOrFail($category_id);
+        
+        if($category){
+            $posts = Post::where('Category_id',$category_id)->get();
+        return view('category.index', compact('posts'));
     }
+    
+    return view('errors.404');
+}
 
     /**
      * Show the form for editing the specified resource.

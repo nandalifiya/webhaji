@@ -81,15 +81,27 @@
     </div>
   </nav>
 
+  <!-- Masthead -->
+  <header class="masthead2">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold">Daftar Paket Haji</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+        </div>
+      </div>
+    </div>
+  </header>
+
   <!-- Services Section -->
   <section class="page-section">
     <div class="container">
-      <h2 class="text-center mt-0">Daftar paket haji</h2>
-      <hr class="divider my-4">
       <div class="row">
         @foreach($hajiPosts as $post)
         <div class="col-md-4">
-          <div class="card">
+          <div class="card text-center">
             <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-height:200px">
             <div class="card-body pt-2 ">
               <h5 class="card-title mb-1"><strong>{{$post->title}}</strong></h5>
