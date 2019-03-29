@@ -11,17 +11,20 @@
   <title>Travel Haji dan Umroh</title>
 
   <!-- Font Awesome Icons -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" rel="stylesheet" type="text/css">
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.min.css" rel="stylesheet">
+
+  <!-- custom carousel -->
+  <link href="css/carousel.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -90,22 +93,36 @@
 
   <!-- Services Section -->
   <section class="page-section">
-    <div class="container">
-      <h2 class="text-center mt-0">At Your Service</h2>
-      <hr class="divider my-4">
-      <div class="row">
-        @foreach($posts as $post)
-        <div class="col-md-4">
-          <div class="card text-center">
-            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}">
-            <div class="card-body">
-              <h6 class="card-title">{{$post->title}}</h6>
-              <p class="card-text">{{$post->description}}</p>
-              <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
+    <div class="container-fluid">
+    <h2 class="text-center mt-0">At Your Service</h2>
+    <hr class="divider my-4">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner row w-100 mx-auto">
+          @foreach($posts as $post)
+          <div class="carousel-item col-md-4 active">
+            <div class="card text-center">           
+              <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
+              <div class="card-body">
+                <h6 class="card-title">{{$post->title}}</h6>
+                <p class="card-text">{{$post->description}}</p>
+                <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a></div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mt-4">
+              <a class="btn btn-outline-secondary mx-1 prev" href="javascript:void(0)" title="Previous">
+                <i class="fa fa-lg fa-chevron-left"></i>
+              </a>
+              <a class="btn btn-outline-secondary mx-1 next" href="javascript:void(0)" title="Next">
+                <i class="fa fa-lg fa-chevron-right"></i>
+              </a>
             </div>
           </div>
         </div>
-        @endforeach
       </div>
     </div>
   </section>
@@ -192,15 +209,20 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
+  <!-- custom scipt for carousel -->
+  <script src="js/carousel.js"></script>
+
+  <!-- script for caraousel -->
+  <script src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.js"></script>
 
 </body>
 
