@@ -23,6 +23,9 @@
         <div class="table-responsive">
           <table class="table">
             <thead class=" text-primary">
+            <th>
+                post id
+              </th>
               <th>
                 title
               </th>
@@ -42,6 +45,9 @@
             <tbody>
               @foreach($posts as $post)
               <tr>
+                <td>
+                {{$post->id}}
+              </td>
                 <td>
                   {{$post->title}}
                 </td>

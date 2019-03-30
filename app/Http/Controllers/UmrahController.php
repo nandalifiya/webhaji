@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DummyFullModelClass;
 use App\lain;
+use App\Post;
 use Illuminate\Http\Request;
 
 class UmrahController extends Controller
@@ -14,9 +15,12 @@ class UmrahController extends Controller
      * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
-    public function index(lain $lain)
+    public function index()
     {
-        return view('umrah');
+        $umrahPosts = Post::whereHas('categories', function($q){
+                    $q->where('name', 'umrah');
+                })->paginate(6);
+        return view('umrah', ['umrahPosts' => $umrahPosts]);
     }
 
     /**

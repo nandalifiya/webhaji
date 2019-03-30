@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
           'name' => 'recommend'
         ]);
         $category3 = factory(App\Category::class)->create([
-          'name' => 'umroh'
+          'name' => 'umrah'
         ]);
         $category4 = factory(App\Category::class)->create([
           'name' => 'haji'

@@ -2473,7 +2473,7 @@ Created using IcoMoon - icomoon.io
 
 .table > thead > tr > th {
   border-bottom-width: 1px;
-  font-size: 1.45em;
+  font-size: 1.3em;
   font-weight: 300;
   border: 0; }
 
@@ -2502,10 +2502,11 @@ Created using IcoMoon - icomoon.io
   vertical-align: middle; }
 
 .table .th-description {
-  max-width: 150px; }
+  max-width: 150px; 
+}
 
 .table .td-price {
-  font-size: 26px;
+  font-size: 1.2em;
   font-weight: 300;
   margin-top: 5px;
   position: relative;
@@ -2514,7 +2515,6 @@ Created using IcoMoon - icomoon.io
 
 .table .td-total {
   font-weight: 700;
-  font-size: 1.57em;
   padding-top: 20px;
   text-align: right; }
 

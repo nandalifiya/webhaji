@@ -3,47 +3,27 @@
 namespace App\Http\Controllers;
 
 use DummyFullModelClass;
-use Illuminate\Http\Request;
 use App\lain;
 use App\Post;
-use App\Category;
+use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     
+     * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
     public function index(lain $lain)
     {
-        $posts = Post::all();
-        $hajiPosts = Post::whereHas('categories', function($q){
-                    $q->where('name', 'haji');
-                })->get();
-        $UmrohPosts = Post::whereHas('categories', function($q){
-                    $q->where('name', 'umroh');
-                })->get();
-        $recommendPosts = Post::whereHas('categories', function($q){
-                    $q->where('name', 'recommend');
-                })->get();
-        $blogPosts = Post::whereHas('categories', function($q){
-                    $q->where('name', 'blog');
-                })->get();
-
-        return view('index', [
-                'posts' => $posts, 
-                'hajiPosts'=> $hajiPosts,
-                'umrohPosts' => $UmrohPosts,
-                'recommendPosts' => $recommendPosts,
-                'blogPosts' => $blogPosts
-            ]);
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\lain  $lain
      * @return \Illuminate\Http\Response
      */
     public function create(lain $lain)
@@ -70,10 +50,17 @@ class IndexController extends Controller
      * @param  \DummyFullModelClass  $DummyModelVariable
      * @return \Illuminate\Http\Response
      */
-    public function show(lain $lain, DummyModelClass $DummyModelVariable)
+    public function show($category_id)
     {
-        //
+        $category = Category::findOrFail($category_id);
+        
+        if($category){
+            $posts = Post::where('Category_id',$category_id)->get();
+        return view('category.index', compact('posts'));
     }
+    
+    return view('errors.404');
+}
 
     /**
      * Show the form for editing the specified resource.

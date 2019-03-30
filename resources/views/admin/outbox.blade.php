@@ -39,7 +39,7 @@
                 <td>
                   <div class="row align-items-center">
                     <div class="col-auto">
-                      <form method="outbox" action="{{ route('outbox.destroy', $outbox->id) }}">
+                      <form method="POST" action="{{ route('outbox.destroy', $outbox->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">

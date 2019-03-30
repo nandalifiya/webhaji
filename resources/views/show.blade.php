@@ -21,7 +21,16 @@
   <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="/css/creative.min.css" rel="stylesheet">
+  <link href="/css/creative.css" rel="stylesheet">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -73,16 +82,14 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead">
+  <header class="masthead2">
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Your Favorite Haji and Umrah Travel Agent</h1>
+          <h1 class="text-uppercase text-white font-weight">Paket Terbaik untuk anda</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5"></p>
-          
         </div>
       </div>
     </div>
@@ -93,8 +100,6 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Paket {} terbaik untuk anda</h2>
-          <hr class="divider my-4">
         </div>
       </div>
         <!-- Title -->
@@ -127,15 +132,15 @@
             @method('POST')
             <input type="hidden" name="post_id" id="post_id" value="{{$model->id}}">
               <div class="form-group">
-                <span class="form-label">Nama</span>
+                <span class="form-label">Nama</span><span style="color:red">*</span>
                 <input class="form-control" type="name" placeholder="masukkan nama" name="name" id="name">
               </div>
               <div class="form-group">
-                <span class="form-label">Email</span>
+                <span class="form-label">Email</span><span style="color:red">*</span>
                 <input class="form-control" type="email" placeholder="masukkan email" name="email" id="email">
               </div>
               <div class="form-group">
-                <span class="form-label">Nomor Telepon</span>
+                <span class="form-label">Nomor Telepon</span><span style="color:red">*</span>
                 <input class="form-control" type="tel" placeholder="masukkan nomor telepon" name="call_numb" id="call_numb">
               </div>
               <button type="submt" class="btn btn-primary">Daftar</button>
@@ -177,17 +182,9 @@
       <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+  
   <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+  <script src="/js/creative.min.js"></script>
 
 </body>
 

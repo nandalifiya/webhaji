@@ -11,20 +11,26 @@
   <title>Travel Haji dan Umroh</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" rel="stylesheet" type="text/css">
+  <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="/css/creative.css" rel="stylesheet">
 
-  <!-- custom carousel -->
-  <link href="css/carousel.css" rel="stylesheet" type="text/css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -40,7 +46,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/') }}"><font color="#f44242">Home</font></a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('/') }}"><font color="#fff">Home</font></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}">Haji</a>
@@ -84,8 +90,9 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Daftar Sekarang!</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Daftar</a>
+          <p class="text-white-75 font-weight-light mb-5">Cek paketnya sekarang!</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin:20px;" href="{{ url('/haji') }}">Paket Haji</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin:20px;" href="{{ url('/umrah') }}">Paket Umrah</a>
         </div>
       </div>
     </div>
@@ -93,36 +100,23 @@
 
   <!-- Services Section -->
   <section class="page-section">
-    <div class="container-fluid">
-    <h2 class="text-center mt-0">At Your Service</h2>
-    <hr class="divider my-4">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner row w-100 mx-auto">
-          @foreach($posts as $post)
-          <div class="carousel-item col-md-4 active">
-            <div class="card text-center">           
-              <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
-              <div class="card-body">
-                <h6 class="card-title">{{$post->title}}</h6>
-                <p class="card-text">{{$post->description}}</p>
-                <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a></div>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-12 text-center mt-4">
-              <a class="btn btn-outline-secondary mx-1 prev" href="javascript:void(0)" title="Previous">
-                <i class="fa fa-lg fa-chevron-left"></i>
-              </a>
-              <a class="btn btn-outline-secondary mx-1 next" href="javascript:void(0)" title="Next">
-                <i class="fa fa-lg fa-chevron-right"></i>
-              </a>
+    <div class="container">
+      <h2 class="text-center mt-0">At Your Service</h2>
+      <hr class="divider my-4">
+      <div class="row">
+        @foreach($posts as $post)
+        <div class="col-md-4">
+          <div class="card text-center">
+            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}">
+            <div class="card-body">
+            <h5 class="card-title mb-1"><strong>{{$post->title}}</strong></h5>
+              <hr class="mt-1 mb-1">
+              <p class="card-text">{{$post->description}}</p>
+              <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
             </div>
           </div>
         </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -208,21 +202,8 @@
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="assets/js/core/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
   <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
-  <!-- custom scipt for carousel -->
-  <script src="js/carousel.js"></script>
-
-  <!-- script for caraousel -->
-  <script src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.js"></script>
+  <script src="/js/creative.min.js"></script>
 
 </body>
 

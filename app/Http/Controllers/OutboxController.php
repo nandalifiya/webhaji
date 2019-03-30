@@ -31,7 +31,7 @@ class OutboxController extends Controller
      */
     public function index()
     {
-      $outboxes = Outbox::all();
+      $outboxes = Outbox::orderBy('created_at', 'DESC')->get();
       return view('admin.outbox', compact('outboxes'));
     }
 
@@ -117,6 +117,8 @@ class OutboxController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $outboxes = Outbox::findOrFail($id);
+      $outboxes->delete();
+      return redirect()->back();
     }
 }

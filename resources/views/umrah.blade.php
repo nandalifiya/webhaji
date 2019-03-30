@@ -21,7 +21,16 @@
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/creative.css" rel="stylesheet">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -43,7 +52,7 @@
             <a class="nav-link js-scroll-trigger" href="{{ url('/haji') }}">Haji</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/umrah') }}"><font color="#f44242">Umrah</font></a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('/umrah') }}"><font color="#fff">Umrah</font></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About Us</a>
@@ -73,20 +82,42 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead">
+  <header class="masthead2">
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Your Favorite Source of Free Bootstrap Themes</h1>
+          <h1 class="text-uppercase text-white font-weight-bold">Daftar Paket Umrah</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Services Section -->
+  <section class="page-section">
+    <div class="container">
+      <div class="row">
+        @foreach($umrahPosts as $post)
+        <div class="col-md-4">
+          <div class="card text-center">
+            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-height:200px">
+            <div class="card-body pt-2 ">
+              <h5 class="card-title mb-1"><strong>{{$post->title}}</strong></h5>
+              <hr class="mt-1 mb-1">
+              <p class="card-text">{{str_limit($post->description, 60)}}</p>
+              <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+      <br>
+      <br>
+      {{ $umrahPosts->onEachSide(1)->links() }}
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <section class="page-section">
@@ -118,14 +149,6 @@
       <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
