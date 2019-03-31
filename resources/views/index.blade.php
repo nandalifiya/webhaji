@@ -11,7 +11,6 @@
   <title>Travel Haji dan Umroh</title>
 
   <!-- Font Awesome Icons -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css">
 
   <!-- Google Fonts -->
@@ -19,7 +18,6 @@
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" type="text/css">
 
   <!-- Theme CSS - Includes Bootstrap -->
@@ -106,12 +104,12 @@
   <!-- Services Section -->
   <section class="page-section">
     <div class="container-fluid">
-      <h2 class="text-center mt-0">At Your Service</h2>
+      <h2 class="text-center mt-0">Recommended Paket</h2>
       <hr class="divider my-4">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner row w-100 mx-auto">
-          @foreach($posts as $post)
-          <div class="carousel-item col-md-4 active">
+          @foreach($posts as $key => $post)
+          <div class="carousel-item col-md-4 item{{ $key == 0 ? ' active' : '' }}">
             <div class="card text-center">           
               <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
               <div class="card-body">
@@ -135,6 +133,30 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner row w-100 mx-auto">
+          @foreach($posts as $key => $post)
+          <div class="carousel-item col-md-4 item{{ $key == 0 ? ' active' : '' }}">
+            <div class="card text-center">           
+              <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
+              <div class="card-body">
+                <h6 class="card-title">{{$post->title}}</h6>
+                <p class="card-text">{{$post->description}}</p>
+                <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a></div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
   </section>
@@ -189,6 +211,8 @@
     </div>
   </section>
 
+
+
   <!-- Contact Section -->
   <section class="page-section">
     <div class="container">
@@ -220,8 +244,8 @@
     </div>
   </footer>
 
-  <!-- Custom scripts for this template -->
-  <script src="/js/creative.min.js"></script>
+  
+
 
   <!-- custom scipt for carousel -->
   <script src="js/carousel.js"></script>
