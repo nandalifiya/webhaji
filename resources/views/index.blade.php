@@ -22,19 +22,15 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="/css/creative.css" rel="stylesheet">
+
+    <link type="text/css" href="css/carousel.css" rel="stylesheet">
   
-  <!-- custom carousel -->
-  <link href="css/carousel.css" rel="stylesheet" type="text/css">
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/slick/slick.css"/>
 
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"/>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+  
 </head>
 
 <body id="page-top">
@@ -103,63 +99,27 @@
 
   <!-- Services Section -->
   <section class="page-section">
-    <div class="container-fluid">
-      <h2 class="text-center mt-0">Recommended Paket</h2>
-      <hr class="divider my-4">
-      <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner row w-100 mx-auto">
-          @foreach($posts as $key => $post)
-          <div class="carousel-item col-md-4 item{{ $key == 0 ? ' active' : '' }}">
-            <div class="card text-center">           
-              <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
-              <div class="card-body">
-                <h6 class="card-title">{{$post->title}}</h6>
-                <p class="card-text">{{$post->description}}</p>
-                <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a></div>
-              </div>
+    <h2 class="text-center mt-0">Recommended Paket</h2>
+    <hr class="divider my-4">
+    <div class="container-fluid row justify-content-center">
+      <div class="recommended-slider col-md-10">
+        @foreach($posts as $post)
+          <div class="card text-center">
+            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
+            
+            <div class="card-body">
+              <h6 class="card-title"><strong>{{$post->title}}</strong></h6>
+              <p class="card-text">{{$post->description}}</p>
+              <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
             </div>
           </div>
           @endforeach
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-12 text-center mt-4">
-              <a class="btn btn-outline-secondary mx-1 prev" href="javascript:void(0)" title="Previous">
-                <i class="fa fa-lg fa-chevron-left"></i>
-              </a>
-              <a class="btn btn-outline-secondary mx-1 next" href="javascript:void(0)" title="Next">
-                <i class="fa fa-lg fa-chevron-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner row w-100 mx-auto">
-          @foreach($posts as $key => $post)
-          <div class="carousel-item col-md-4 item{{ $key == 0 ? ' active' : '' }}">
-            <div class="card text-center">           
-              <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
-              <div class="card-body">
-                <h6 class="card-title">{{$post->title}}</h6>
-                <p class="card-text">{{$post->description}}</p>
-                <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a></div>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- Portfolio Section -->
   <section id="portfolio">
@@ -212,7 +172,6 @@
   </section>
 
 
-
   <!-- Contact Section -->
   <section class="page-section">
     <div class="container">
@@ -246,6 +205,17 @@
 
   
 
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="assets/slick/slick.min.js"></script>
 
   <!-- custom scipt for carousel -->
   <script src="js/carousel.js"></script>
