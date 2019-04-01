@@ -101,15 +101,15 @@
   <section class="page-section">
     <h2 class="text-center mt-0">Recommended Paket</h2>
     <hr class="divider my-4">
-    <div class="container-fluid row justify-content-center">
+    <div class="row justify-content-center">
       <div class="recommended-slider col-md-10">
-        @foreach($posts as $post)
+        @foreach($recommendPosts as $post)
           <div class="card text-center">
             <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
             
             <div class="card-body">
               <h6 class="card-title"><strong>{{$post->title}}</strong></h6>
-              <p class="card-text">{{$post->description}}</p>
+              <p class="card-text">{{str_limit($post->description, 50)}}</p>
               <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
             </div>
           </div>
@@ -120,9 +120,39 @@
     </div>
   </section>
 
+  <!-- Services Section -->
+  <section class="page-section">
+    <h2 class="text-center mt-0">Blog Posts</h2>
+    <hr class="divider my-4">
+    <div class="row justify-content-center">
+      <div class="blog-slider col-md-8">
+        @foreach($blogPosts as $post)
+          <div class="card">
+            <img class="card-img" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-height:70vh;" > 
+            
+            <div class="card-img-overlay">
+              <h4 class="card-title"><strong>{{$post->title}}</strong></h4>
+              <p class="card-text">{{str_limit($post->description, 50)}}</p>
+              <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Baca Selanjutnya</a>
+            </div>
+          </div>
+          @endforeach
+      </div>
+      <div class="blog-slider-nav col-md-8 mt-3">
+        @foreach($blogPosts as $post)
+          <div class="card">
+            <img class="card-img" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-height:120px;"> 
+          </div>
+          @endforeach
+      </div>
+
+      </div>
+    </div>
+  </section>
+
 
   <!-- Portfolio Section -->
-  <section id="portfolio">
+  <!-- <section id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
         <div class="col-lg-4 col-sm-6">
@@ -169,7 +199,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- Contact Section -->
