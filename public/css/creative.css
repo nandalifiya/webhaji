@@ -10589,7 +10589,11 @@ hr.light {
 }
 
 .page-section {
-  padding: 3rem 0;
+  padding: 0.5rem 0;
+}
+
+.packet-price{
+  color: rgb(237, 81, 9);
 }
 
 #mainNav {
@@ -10700,8 +10704,8 @@ header.masthead h1 {
 }
 
 header.masthead2 {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 72px);
+  padding-top: 15vh;
+  padding-bottom: calc(5rem - 72px);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 77, 66, 0.8)), to(rgba(92, 77, 66, 0.8))), url("../img/bg-masthead2.jpg");
   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/bg-masthead2.jpg");
   background-position: top;
@@ -10711,27 +10715,27 @@ header.masthead2 {
 }
 
 header.masthead2 h1 {
-  font-size: 2.25rem;
+  font-size: 1.25rem;
 }
 
 @media (min-width: 992px) {
   header.masthead2 {
-    height: 50vh;
-    min-height: 20rem;
-    padding-top: 72px;
+    height: 30vh;
+    min-height: 15rem;
+    padding-top: 15vh;
     padding-bottom: 0;
   }
   header.masthead2 p {
     font-size: 1.15rem;
   }
   header.masthead2 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
 @media (min-width: 1200px) {
   header.masthead2 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 

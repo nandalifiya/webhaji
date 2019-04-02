@@ -99,17 +99,17 @@
 
   <!-- Services Section -->
   <section class="page-section">
-    <h2 class="text-center mt-0">Recommended Paket</h2>
+    <h2 class="text-center mt-5">Recommended Paket</h2>
     <hr class="divider my-4">
     <div class="row justify-content-center">
       <div class="recommended-slider col-md-10">
         @foreach($recommendPosts as $post)
           <div class="card text-center">
-            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}"> 
-            
-            <div class="card-body">
-              <h6 class="card-title"><strong>{{$post->title}}</strong></h6>
-              <p class="card-text">{{str_limit($post->description, 50)}}</p>
+            <img class="card-img-top" src="{{ url('storage').'/'.$post->filename}}" alt="{{$post->filename}}" style="max-height:200px">
+            <div class="card-body pt-2 ">
+              <h5 class="card-title mb-1"><strong>{{$post->title}}</strong></h5>
+              <hr class="mt-1 mb-1">
+              <p class="card-text">{{str_limit($post->description, 60)}}</p>
               <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Details</a>
             </div>
           </div>
@@ -122,7 +122,7 @@
 
   <!-- Services Section -->
   <section class="page-section">
-    <h2 class="text-center mt-0">Blog Posts</h2>
+    <h2 class="text-center mt-5">Blog Posts</h2>
     <hr class="divider my-4">
     <div class="row justify-content-center">
       <div class="blog-slider col-md-8">
@@ -132,7 +132,7 @@
             
             <div class="card-img-overlay">
               <h4 class="card-title"><strong>{{$post->title}}</strong></h4>
-              <p class="card-text">{{str_limit($post->description, 50)}}</p>
+              <p class="card-text">{{str_limit($post->description, 50 )}}</p>
               <a href="{{ url('show', ['id' => $post['id']]) }}" class="btn btn-primary">Baca Selanjutnya</a>
             </div>
           </div>

@@ -31,7 +31,7 @@
           </div>
           <div class="form-group">
             <label for="description">Description<span style="color:red">*</span></label>
-            <textarea type="textarea" class="form-control" name="description" id="description" rows="5"  required>{{ $post->description }}</textarea>
+            <textarea type="textarea" class="form-control" name="description" id="description" rows="5" >{{ $post->description }}</textarea>
           </div>
           <div class="form-group">
             <label for="price">Price</label>
@@ -56,6 +56,17 @@
   </div>
 </div>
 <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
+<script type="text/javascript" src="/js/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+
+<script type="text/javascript">
+tinymce.init({
+  selector : "textarea",
+  plugins : ["advlist autolink lists link charmap preview", "searchreplace visualblocks code fullscreen", "insertdatetime table contextmenu paste"],
+
+  toolbar : "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link ",
+  height: 450
+});
+</script>
 <script>
   function noPreview() {
     $('#image-preview-div').css("display", "none");
